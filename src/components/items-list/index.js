@@ -8,12 +8,22 @@ export class ItemsList extends Component {
   }
 
   render() {
-    return <div>Heja!</div>;
+    const { itemsList } = this.props;
+    if (!itemsList) {
+      return <div>Loading...</div>;
+    }
+    return <ul>{itemsList.map(item => <li>{item.name}</li>)}</ul>;
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    itemsList: ducks.itemsList.selectors.itemsList(state)
+  };
+};
 
 const mapDispatchToProps = {
   fetchItemsList: ducks.itemsList.actions.fetchItemsList
 };
 
-export default connect(null, mapDispatchToProps)(ItemsList);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);

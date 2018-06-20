@@ -8,6 +8,15 @@ const defaultState = {
   error: null
 };
 
+const root = state => state[ns];
+
+const selectors = {
+  root,
+  itemsList: state => root(state).itemsList,
+  isLoading: state => root(state).isLoading,
+  error: state => root(state).error
+};
+
 const types = {
   fetchItemsList: "REQUEST_ITEMS_LIST"
 };
@@ -57,6 +66,7 @@ export default {
   shape,
   defaultState,
   types,
+  selectors,
   actions,
   rawReducer,
   reducer
