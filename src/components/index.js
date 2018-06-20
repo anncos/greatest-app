@@ -1,2 +1,2 @@
 export * from "./header";
-export * from "./items-list";
+export { default as ItemsList } from "./items-list";
