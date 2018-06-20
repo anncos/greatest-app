@@ -1,5 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 
-export const ItemsList = () => {
-  return <div>Hej!</div>;
-};
+export class ItemsList extends Component {
+  componentDidMount() {
+    //fetchItemsList();
+  }
+
+  render() {
+    return <div>Heja!</div>;
+  }
+}
